@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center;">Todo Items</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Done</th>
+      <th>Due</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_items.each do |todo_item| %>
+      <tr>
+        <td><%= todo_item.description %></td>
+        <td><%= todo_item.done %></td>
+        <td><i class="fa fa-cloud" aria-hidden="true"></i><%= todo_item.due %></td>
+        <td><%= link_to 'Show', todo_item, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_todo_item_path(todo_item), class: "btn btn-primary"%></td>
+        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="">
+    <%= link_to 'New Todo Item', new_todo_item_path, class: "btn btn-primary" %>
+</div>
+
+<br>
+<div class="">
+  <%= image_tag 'chris.jpg' %>
+</div>
